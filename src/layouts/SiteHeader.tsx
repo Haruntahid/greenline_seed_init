@@ -47,7 +47,7 @@ function SiteHeader() {
       <nav className="site-nav" aria-label="Main navigation">
         <Link className="site-logo" to="/home" onClick={closeMenus}>
           <img
-            src={getGoogleDriveImageUrl(siteInfo.logo) || '/images/greenline-logo.png'}
+            src={getGoogleDriveImageUrl(siteInfo.logo) || 'https://i.ibb.co.com/MkfVQN9m/Gemini-Generated-Image-xzxpi0xzxpi0xzxp-removebg-preview.png'}
             alt={siteInfo.name}
             className="site-logo-image"
           />
