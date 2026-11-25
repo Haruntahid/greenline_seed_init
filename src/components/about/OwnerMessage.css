@@ -1,0 +1,429 @@
+
+.owner-message {
+  --owner-bg: #f0fdf4;
+  --owner-card: #ffffff;
+  --owner-green: #047857;
+  --owner-dark-green: #064e3b;
+  --owner-light-green: #10b981;
+  --owner-soft-green: #d1fae5;
+  --owner-text: #16352a;
+  --owner-muted: #647b70;
+
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding: 110px 24px;
+  color: var(--owner-text);
+  background:
+    radial-gradient(ellipse at 12% 50%, rgba(16, 185, 129, 0.12), transparent 38%),
+    radial-gradient(ellipse at 88% 20%, rgba(4, 120, 87, 0.08), transparent 32%),
+    var(--owner-bg);
+}
+
+.owner-message::before,
+.owner-message::after {
+  position: absolute;
+  z-index: -1;
+  width: 280px;
+  height: 280px;
+  border: 1px solid rgba(4, 120, 87, 0.12);
+  border-radius: 50%;
+  content: '';
+  pointer-events: none;
+}
+
+.owner-message::before {
+  top: -190px;
+  right: 12%;
+}
+
+.owner-message::after {
+  bottom: -210px;
+  left: 8%;
+  width: 340px;
+  height: 340px;
+}
+
+/* MAIN LAYOUT */
+
+.owner-message-inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
+  align-items: center;
+  gap: clamp(48px, 7vw, 110px);
+  width: min(1180px, 100%);
+  margin: 0 auto;
+}
+
+/* LEFT: OWNER PROFILE */
+
+.owner-message-profile {
+  min-width: 0;
+}
+
+.owner-message-image-area {
+  position: relative;
+  width: min(300px, 82%);
+  margin: 0 0 34px 12px;
+  padding-bottom: 10px;
+}
+
+.owner-message-image-frame {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 1 / 1.08;
+  border: 2px solid rgba(4, 120, 87, 0.45);
+  border-radius: 25px;
+  background: var(--owner-soft-green);
+  box-shadow: 0 18px 55px rgba(6, 78, 59, 0.12);
+  transform: rotate(-2deg);
+  transition:
+    transform 450ms ease,
+    border-color 450ms ease,
+    box-shadow 450ms ease;
+}
+
+.owner-message-image-frame::after {
+  position: absolute;
+  inset: 0;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  border-radius: inherit;
+  content: '';
+  pointer-events: none;
+}
+
+.owner-message-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(100%);
+  transition:
+    transform 650ms cubic-bezier(0.2, 0.7, 0.2, 1),
+    filter 650ms ease;
+}
+
+.owner-message-profile:hover .owner-message-image-frame {
+  border-color: var(--owner-light-green);
+  box-shadow:
+    0 20px 60px rgba(6, 78, 59, 0.16),
+    0 0 28px rgba(16, 185, 129, 0.18);
+  transform: rotate(0deg) translateY(-5px);
+}
+
+.owner-message-profile:hover .owner-message-image {
+  filter: grayscale(25%);
+  transform: scale(1.07);
+}
+
+.owner-message-role {
+  position: absolute;
+  right: -12px;
+  bottom: -3px;
+  z-index: 1;
+  max-width: calc(100% - 20px);
+  padding: 10px 20px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 12px;
+  color: #ffffff;
+  background: var(--owner-green);
+  box-shadow: 0 8px 24px rgba(6, 78, 59, 0.2);
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-align: center;
+  transition:
+    background 300ms ease,
+    transform 300ms ease;
+}
+
+.owner-message-profile:hover .owner-message-role {
+  background: var(--owner-dark-green);
+  transform: translateY(-3px);
+}
+
+.owner-message-identity {
+  max-width: 100%;
+}
+
+.owner-message-name {
+  margin: 0 0 8px;
+  color: var(--owner-dark-green);
+  font-size: clamp(2rem, 4.2vw, 3.5rem);
+  font-weight: 800;
+  line-height: 1.12;
+  letter-spacing: -0.045em;
+  overflow-wrap: anywhere;
+  transition: color 300ms ease;
+}
+
+.owner-message-profile:hover .owner-message-name {
+  color: var(--owner-green);
+  text-shadow: 0 0 25px rgba(16, 185, 129, 0.12);
+}
+
+.owner-message-designation {
+  display: inline-block;
+  color: var(--owner-green);
+  font-size: clamp(1rem, 1.7vw, 1.35rem);
+  line-height: 1.5;
+}
+
+/* RIGHT: QUOTE CARD */
+
+.owner-message-details {
+  min-width: 0;
+}
+
+.owner-message-quote-card {
+  position: relative;
+  overflow: hidden;
+  padding: 82px 44px 65px;
+  border: 1px solid rgba(4, 120, 87, 0.14);
+  border-radius: 38px;
+  background:
+    linear-gradient(145deg, rgba(209, 250, 229, 0.35), rgba(255, 255, 255, 0.7)),
+    var(--owner-card);
+  box-shadow: 0 24px 70px rgba(6, 78, 59, 0.08);
+  transition:
+    transform 400ms ease,
+    border-color 400ms ease,
+    box-shadow 400ms ease;
+}
+
+.owner-message-quote-card::before {
+  position: absolute;
+  top: 25px;
+  right: 44%;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: var(--owner-light-green);
+  box-shadow: 0 0 22px rgba(16, 185, 129, 0.35);
+  content: '';
+}
+
+.owner-message-quote-card:hover {
+  border-color: rgba(4, 120, 87, 0.35);
+  box-shadow:
+    0 28px 75px rgba(6, 78, 59, 0.12),
+    0 0 30px rgba(16, 185, 129, 0.08);
+  transform: translateY(-6px);
+}
+
+/* QUOTATION MARKS — NOW FULLY VISIBLE */
+
+.owner-message-quote-mark {
+  position: absolute;
+  z-index: 0;
+  color: rgba(4, 120, 87, 0.25);
+  font-family: Georgia, serif;
+  font-size: 7rem;
+  font-weight: 700;
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+}
+
+.owner-message-quote-open {
+  top: 12px;
+  left: 24px;
+}
+
+.owner-message-quote-close {
+  right: 22px;
+  bottom: 0;
+  color: rgba(4, 120, 87, 0.22);
+}
+
+.owner-message-eyebrow {
+  position: relative;
+  z-index: 1;
+  display: block;
+  margin-bottom: 12px;
+  color: var(--owner-green);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.owner-message-title {
+  position: relative;
+  z-index: 1;
+  margin: 0 0 20px;
+  color: var(--owner-dark-green);
+  font-size: clamp(1.3rem, 2.3vw, 1.8rem);
+  line-height: 1.35;
+}
+
+.owner-message-quote {
+  position: relative;
+  z-index: 1;
+  margin: 0 0 22px;
+  color: var(--owner-dark-green);
+  font-size: clamp(1.05rem, 1.7vw, 1.3rem);
+  font-weight: 600;
+  line-height: 1.65;
+}
+
+.owner-message-body {
+  position: relative;
+  z-index: 1;
+}
+
+.owner-message-body p {
+  margin: 0 0 16px;
+  color: var(--owner-muted);
+  font-size: 0.98rem;
+  line-height: 1.85;
+}
+
+.owner-message-body p:last-child {
+  margin-bottom: 0;
+}
+
+/* ACTION BUTTONS */
+
+.owner-message-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 34px;
+}
+
+.owner-message-button {
+  display: inline-flex;
+  min-width: 155px;
+  min-height: 56px;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 13px 25px;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  color: #ffffff;
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition:
+    transform 300ms ease,
+    background 300ms ease,
+    border-color 300ms ease,
+    box-shadow 300ms ease;
+}
+
+.owner-message-button-primary {
+  border-color: var(--owner-green);
+  background: var(--owner-green);
+  box-shadow: 0 8px 22px rgba(4, 120, 87, 0.18);
+}
+
+.owner-message-button-primary:hover {
+  border-color: var(--owner-dark-green);
+  background: var(--owner-dark-green);
+  box-shadow: 0 12px 28px rgba(4, 120, 87, 0.25);
+  transform: translateY(-4px);
+}
+
+.owner-message-button-outline {
+  border-color: rgba(4, 120, 87, 0.35);
+  color: var(--owner-green);
+  background: transparent;
+}
+
+.owner-message-button-outline:hover {
+  border-color: var(--owner-green);
+  color: #ffffff;
+  background: var(--owner-green);
+  transform: translateY(-4px);
+}
+
+.owner-message-button svg {
+  transition: transform 300ms ease;
+}
+
+.owner-message-button:hover svg {
+  transform: translate(3px, -3px);
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 900px) {
+  .owner-message {
+    padding: 85px 24px;
+  }
+
+  .owner-message-inner {
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    gap: 38px;
+  }
+
+  .owner-message-image-area {
+    width: min(270px, 90%);
+  }
+
+  .owner-message-quote-card {
+    padding: 75px 30px 55px;
+    border-radius: 30px;
+  }
+}
+
+@media (max-width: 680px) {
+  .owner-message {
+    padding: 72px 20px;
+  }
+
+  .owner-message-inner {
+    grid-template-columns: 1fr;
+    gap: 42px;
+  }
+
+  .owner-message-profile {
+    width: min(100%, 460px);
+    margin: 0 auto;
+  }
+
+  .owner-message-image-area {
+    width: min(260px, 78%);
+    margin-left: 8px;
+  }
+
+  .owner-message-name {
+    font-size: clamp(2rem, 9vw, 3rem);
+  }
+
+  .owner-message-quote-card {
+    padding: 75px 28px 55px;
+  }
+
+  .owner-message-actions {
+    gap: 12px;
+  }
+
+  .owner-message-button {
+    flex: 1;
+    min-width: 0;
+  }
+}
+
+@media (max-width: 380px) {
+  .owner-message-actions {
+    flex-direction: column;
+  }
+
+  .owner-message-button {
+    width: 100%;
+  }
+}
+
+/* ACCESSIBILITY */
+
+@media (prefers-reduced-motion: reduce) {
+  .owner-message *,
+  .owner-message *::before,
+  .owner-message *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}

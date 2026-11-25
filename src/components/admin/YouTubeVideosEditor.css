@@ -1,0 +1,156 @@
+
+.youtube-admin-editor .content-editor-group > p {
+  margin: 7px 0 20px;
+  color: var(--text-muted, #777);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.youtube-admin-video-card {
+  margin-top: 20px;
+  padding: 22px;
+  border: 1px solid var(--border-color, #e5e7eb);
+  border-radius: 14px;
+  background: var(--surface-color, #fff);
+}
+
+.youtube-admin-video-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 15px;
+}
+
+.youtube-admin-video-heading h4 {
+  margin: 5px 0 0;
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.youtube-admin-video-number {
+  color: var(--text-muted, #777);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+}
+
+.youtube-admin-video-order {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+  margin-top: 17px;
+}
+
+.youtube-admin-video-order button {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 7px 11px;
+  border: 1px solid var(--border-color, #e5e7eb);
+  border-radius: 7px;
+  color: var(--text-color, #333);
+  background: var(--surface-color, #fff);
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.youtube-admin-video-order button:hover:not(:disabled) {
+  border-color: #16a34a;
+  color: #15803d;
+}
+
+.youtube-admin-video-order button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.youtube-admin-video-card > label {
+  margin-top: 17px;
+}
+
+.youtube-admin-preview {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 12px;
+  padding: 10px;
+  border-radius: 9px;
+  background: var(--surface-muted, #f5f7f5);
+}
+
+.youtube-admin-preview img {
+  width: 112px;
+  aspect-ratio: 16 / 9;
+  border-radius: 6px;
+  object-fit: cover;
+}
+
+.youtube-admin-preview span {
+  color: var(--text-muted, #666);
+  font-size: 12px;
+  overflow-wrap: anywhere;
+}
+
+.youtube-admin-video-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 22px;
+  margin-top: 20px;
+  padding-top: 17px;
+  border-top: 1px solid var(--border-color, #e5e7eb);
+}
+
+.youtube-admin-empty {
+  margin-top: 20px;
+  padding: 38px 20px;
+  border: 1px dashed var(--border-color, #d1d5db);
+  border-radius: 12px;
+  color: var(--text-muted, #777);
+  text-align: center;
+}
+
+.youtube-admin-empty svg {
+  color: #16a34a;
+}
+
+.youtube-admin-empty h4 {
+  margin: 12px 0 5px;
+  color: var(--text-color, #333);
+}
+
+.youtube-admin-empty p {
+  margin: 0;
+  font-size: 13px;
+}
+
+.youtube-admin-info {
+  margin-top: 18px;
+  padding: 14px 16px;
+  border-left: 3px solid #16a34a;
+  border-radius: 5px;
+  color: var(--text-muted, #666);
+  background: var(--surface-muted, #f5f7f5);
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+@media (max-width: 600px) {
+  .youtube-admin-video-card {
+    padding: 16px;
+  }
+
+  .youtube-admin-video-options {
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .youtube-admin-preview {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .youtube-admin-preview img {
+    width: 100%;
+    max-width: 220px;
+  }
+}

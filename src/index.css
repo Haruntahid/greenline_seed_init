@@ -1,0 +1,45 @@
+
+:root {
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Consistent box sizing */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Base document layout */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+/* Form elements inherit global typography */
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+/* ========================================
+   Bengali Typography - Noto Sans Bengali
+======================================== */
+
+.font-bengali {
+  font-family: 'Noto Sans Bengali', sans-serif !important;
+}
+
+:lang(bn) {
+  font-family: 'Noto Sans Bengali', sans-serif;
+}

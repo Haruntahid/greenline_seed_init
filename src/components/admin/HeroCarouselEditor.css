@@ -1,0 +1,245 @@
+/* ========================================
+   HERO CAROUSEL EDITOR (Dark Admin Theme)
+======================================== */
+
+.hero-carousel-editor-card {
+  padding: 24px;
+  margin-top: 18px;
+  border: 1px solid var(--admin-border, #243530);
+  border-radius: 12px;
+  background: var(--admin-surface, #151f1c);
+  display: grid;
+  gap: 18px;
+}
+
+.hero-carousel-editor-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.hero-carousel-editor-header h4 {
+  margin: 0 0 5px;
+  color: var(--admin-text, #edf5f0);
+  font-size: 16px;
+}
+
+.hero-carousel-editor-header span {
+  color: var(--admin-muted, #8ea69d);
+  font-size: 12px;
+}
+
+.hero-carousel-editor-order {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.hero-carousel-editor-order button {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 12px;
+  border: 1px solid var(--admin-border, #243530);
+  border-radius: 7px;
+  background: var(--admin-surface-hover, #1b2824);
+  color: var(--admin-text, #edf5f0);
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 600;
+  transition: all 0.15s ease;
+}
+
+.hero-carousel-editor-order button:hover:not(:disabled) {
+  border-color: var(--admin-accent, #35c58b);
+  color: var(--admin-accent, #35c58b);
+}
+
+.hero-carousel-editor-order button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* Slide content */
+
+.hero-carousel-editor-card > h3,
+.content-editor-group > h3 {
+  margin: 0;
+  color: var(--admin-text, #edf5f0);
+  font-size: 16px;
+}
+
+.hero-carousel-editor-card label {
+  display: grid;
+  gap: 8px;
+  color: var(--admin-text, #edf5f0);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.hero-carousel-editor-card input:not([type="checkbox"]),
+.hero-carousel-editor-card textarea,
+.content-editor-group input:not([type="checkbox"]),
+.content-editor-group select {
+  width: 100%;
+  min-width: 0;
+  padding: 11px 13px;
+  border: 1px solid var(--admin-border, #243530);
+  border-radius: 8px;
+  outline: none;
+  background: var(--admin-surface-hover, #1b2824);
+  color: var(--admin-text, #edf5f0);
+  font: inherit;
+  font-size: 14px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.hero-carousel-editor-card input:focus,
+.hero-carousel-editor-card textarea:focus,
+.content-editor-group input:focus,
+.content-editor-group select:focus {
+  border-color: var(--admin-accent, #35c58b);
+  box-shadow: 0 0 0 2px var(--admin-accent-soft, rgba(53, 197, 139, 0.2));
+}
+
+.hero-carousel-editor-card textarea {
+  resize: vertical;
+  line-height: 1.6;
+}
+
+.hero-carousel-editor-card input::placeholder {
+  color: var(--admin-muted, #8ea69d);
+}
+
+/* Slide image fields */
+
+.hero-carousel-image-field {
+  display: grid;
+  gap: 14px;
+  padding: 18px;
+  border: 1px solid var(--admin-border, #243530);
+  border-radius: 10px;
+  background: var(--admin-surface-hover, #1b2824);
+}
+
+.hero-carousel-image-field h4 {
+  margin: 0;
+  color: var(--admin-text, #edf5f0);
+  font-size: 14px;
+}
+
+.hero-carousel-image-preview {
+  display: grid;
+  justify-items: start;
+  gap: 10px;
+}
+
+.hero-carousel-image-preview img {
+  display: block;
+  width: 100%;
+  max-width: 420px;
+  max-height: 230px;
+  object-fit: cover;
+  border: 1px solid var(--admin-border, #243530);
+  border-radius: 9px;
+  background: var(--admin-bg, #0b1110);
+}
+
+.hero-carousel-image-preview button {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 11px;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  border-radius: 7px;
+  background: rgba(239, 68, 68, 0.12);
+  color: #f87171;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 600;
+  transition: all 0.15s ease;
+}
+
+.hero-carousel-image-preview button:hover {
+  background: rgba(239, 68, 68, 0.2);
+}
+
+/* Carousel settings */
+
+.content-editor-group {
+  display: grid;
+  gap: 16px;
+}
+
+.content-editor-group > label:not(.service-editor-toggle) {
+  display: grid;
+  gap: 8px;
+  color: var(--admin-text, #edf5f0);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.content-editor-group select:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+/* Toggle controls */
+
+.hero-carousel-editor-card .service-editor-toggle,
+.content-editor-group .service-editor-toggle {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--admin-text, #edf5f0);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.hero-carousel-editor-card input[type="checkbox"],
+.content-editor-group input[type="checkbox"] {
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border: 2px solid var(--admin-border, #243530);
+  border-radius: 4px;
+  background: var(--admin-surface-hover, #1b2824);
+  cursor: pointer;
+  position: relative;
+  display: grid;
+  place-content: center;
+  margin: 0;
+}
+
+.hero-carousel-editor-card input[type="checkbox"]:checked,
+.content-editor-group input[type="checkbox"]:checked {
+  background: var(--admin-accent, #35c58b);
+  border-color: var(--admin-accent, #35c58b);
+}
+
+.hero-carousel-editor-card input[type="checkbox"]:checked::after,
+.content-editor-group input[type="checkbox"]:checked::after {
+  content: "";
+  width: 5px;
+  height: 9px;
+  border: solid #0b1110;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+  margin-top: -2px;
+}
+
+.hero-carousel-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 24px;
+  border: 1.5px dashed var(--admin-border, #243530);
+  border-radius: 8px;
+  background: var(--admin-surface, #151f1c);
+  color: var(--admin-muted, #8ea69d);
+  font-size: 13px;
+  text-align: center;
+}

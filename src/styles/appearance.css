@@ -1,0 +1,50 @@
+
+/* =========================
+   HEADER APPEARANCE
+========================= */
+
+:root[data-header-style='solid'] .site-header {
+  background: var(--color-surface);
+}
+
+:root[data-header-style='transparent'] .site-header {
+  background: transparent;
+  border-color: transparent;
+}
+
+:root[data-header-style='glass'] .site-header {
+  background: rgb(255 255 255 / 65%);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border-color: var(--glass-border);
+}
+
+/* =========================
+   REUSABLE CARD STYLE
+========================= */
+
+.ui-card {
+  border-radius: 16px;
+  padding: 24px;
+  transition:
+    background 0.3s ease,
+    border 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+:root[data-card-style='solid'] .ui-card {
+  background: var(--color-surface);
+  border: 1px solid rgb(0 0 0 / 8%);
+}
+
+:root[data-card-style='transparent'] .ui-card {
+  background: transparent;
+  border: 1px solid rgb(0 0 0 / 10%);
+}
+
+:root[data-card-style='glass'] .ui-card {
+  background: rgb(255 255 255 / 20%);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--glass-border);
+}

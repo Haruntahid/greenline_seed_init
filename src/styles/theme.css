@@ -1,0 +1,60 @@
+
+
+:root {
+  /* Brand colors — Emerald Botanical */
+  --color-primary: #047857;
+  --color-secondary: #064e3b;
+  --color-accent: #10b981;
+  --color-accent-soft: #d1fae5;
+
+  /* Backgrounds */
+  --color-background: #ffffff;
+  --color-surface: #f0fdf4;
+
+  /* Text */
+  --color-text: #16352a;
+  --color-muted: #647b70;
+
+ 
+/* Typography */
+--font-heading: Arial, 'Noto Sans Bengali', sans-serif;
+--font-body: Arial, 'Noto Sans Bengali', sans-serif;
+
+/* Statistics typography */
+--stats-featured-number-font: 'Black Ops One', 'Noto Sans Bengali', sans-serif;
+--stats-number-font: 'Teko', 'Noto Sans Bengali', sans-serif;
+
+  /* Appearance */
+  --glass-blur: 16px;
+  --glass-border: rgb(255 255 255 / 25%);
+}
+
+
+/* Global body styling */
+body {
+  font-family: var(--font-body);
+  color: var(--color-text);
+  background: var(--color-background);
+}
+
+/* Global heading typography */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+}
+
+html {
+  scroll-padding-top: 100px;
+}
+
+#hero,
+#about,
+#services,
+#portfolio,
+#contact {
+  scroll-margin-top: 100px;
+}
