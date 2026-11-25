@@ -109,7 +109,7 @@ function SmartAssistantPage() {
         })
       }
     } catch (err) {
-      console.error('Failed to load assistant configuration:', err)
+      toast.error('Failed to load assistant configuration')
     } finally {
       setIsLoading(false)
     }
@@ -123,7 +123,7 @@ function SmartAssistantPage() {
         setInquiries(res.data)
       }
     } catch (err) {
-      console.error('Failed to load inquiries:', err)
+      toast.error('Failed to load inquiries')
     } finally {
       setIsLoadingInquiries(false)
     }

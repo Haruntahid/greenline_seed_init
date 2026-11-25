@@ -10,6 +10,7 @@ import {
 import { api } from '../../services/api'
 import type { ThemeConfig } from '../../types/site.types'
 import { themeConfig as defaultTheme } from '../../config'
+import { toast } from '../../components/ui/Toast'
 import './ThemeAppearancePage.css'
 
 function ThemeAppearancePage() {
@@ -35,7 +36,8 @@ function ThemeAppearancePage() {
         }
       })
       .catch((err) => {
-        console.error('Failed to load theme:', err)
+        console.error(err)
+        toast.error('Failed to load theme')
       })
       .finally(() => {
         if (active) setIsLoading(false)
