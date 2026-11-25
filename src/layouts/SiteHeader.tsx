@@ -16,7 +16,7 @@ function SiteHeader() {
   const [menuOpen, setMenuOpen] = useState(false)
   const [siteInfo, setSiteInfo] = useState<{ name: string; logo: string }>({
     name: 'Green Line Seed Store',
-    logo: '/images/greenline-logo.png',
+    logo: '/images/greenline-logo.jpg',
   })
 
   useEffect(() => {
@@ -26,7 +26,7 @@ function SiteHeader() {
         if (isActive && res?.success && res?.data) {
           setSiteInfo({
             name: res.data.name || 'Green Line Seed Store',
-            logo: res.data.logo || '/images/greenline-logo.png',
+            logo: res.data.logo || '/images/greenline-logo.jpg',
           })
         }
       })
