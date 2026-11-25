@@ -5,7 +5,7 @@ export const siteConfig: SiteConfig = {
   name: 'Green Line Seed Store',
   description:
     'Quality seeds and agricultural products from Green Line Seed Store.',
-  logo: '/images/greenline-logo.png',
+  logo: 'https://i.ibb.co.com/MkfVQN9m/Gemini-Generated-Image-xzxpi0xzxpi0xzxp-removebg-preview.png',
 
   contact: {
     email: 'greenlineseedbd@gmail.com',
