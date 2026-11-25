@@ -64,63 +64,73 @@ app.get('/api/health', async (req, res) => {
   }
 });
 
-// Connect to MongoDB middleware for incoming API requests (supports Vercel serverless functions)
+// Auto-connect to MongoDB and ensure seed for incoming requests (especially on Vercel serverless)
+let seedDone = false;
 app.use(async (req, res, next) => {
-  if (req.path.startsWith('/api') && req.path !== '/api/health') {
-    try {
-      await connectToMongoDB();
-    } catch (err) {
-      console.error('MongoDB auto-connect error:', err);
+  try {
+    await connectToMongoDB();
+    if (!seedDone) {
+      const db = getDb();
+      await ensureLocalContentSeed(db);
+      await ensureAdminUsersSeed(db);
+      seedDone = true;
     }
+  } catch (err) {
+    console.error('MongoDB auto-connect/seed error:', err);
   }
   next();
 });
 
-// Mount Routes
-app.use('/api/auth', authRouter);
-app.use('/api/hero', heroRouter);
-app.use(
-  '/api/hero-carousel',
+// Create API Router supporting both /api/* and /* (for flexible reverse-proxy / Vercel rewrites)
+const apiRouter = express.Router();
+apiRouter.use('/auth', authRouter);
+apiRouter.use('/hero', heroRouter);
+apiRouter.use(
+  '/hero-carousel',
   createDocumentRouter({
     collectionName: 'hero_carousel',
     id: 'hero_carousel',
     getDefault: () => heroCarouselData,
   }),
 );
-app.use('/api/about', aboutRouter);
-app.use(
-  '/api/about-page',
+apiRouter.use('/about', aboutRouter);
+apiRouter.use(
+  '/about-page',
   createDocumentRouter({
     collectionName: 'about_page_content',
     id: 'about_page',
     getDefault: () => aboutPageData,
   }),
 );
-app.use('/api/services', servicesRouter);
-app.use('/api/stats', statsRouter);
-app.use('/api/projects', projectsRouter);
-app.use('/api/products', productsRouter);
-app.use(
-  '/api/gallery',
+apiRouter.use('/services', servicesRouter);
+apiRouter.use('/stats', statsRouter);
+apiRouter.use('/projects', projectsRouter);
+apiRouter.use('/products', productsRouter);
+apiRouter.use(
+  '/gallery',
   createDocumentRouter({
     collectionName: 'gallery_content',
     id: 'gallery',
     getDefault: () => galleryData,
   }),
 );
-app.use(
-  '/api/youtube-videos',
+apiRouter.use(
+  '/youtube-videos',
   createDocumentRouter({
     collectionName: 'youtube_content',
     id: 'youtube',
     getDefault: () => youtubeData,
   }),
 );
-app.use('/api/blogs', blogsRouter);
-app.use('/api/contact', contactRouter);
-app.use('/api/settings', settingsRouter);
-app.use('/api/media', mediaRouter);
-app.use('/api/assistant', assistantRouter);
+apiRouter.use('/blogs', blogsRouter);
+apiRouter.use('/contact', contactRouter);
+apiRouter.use('/settings', settingsRouter);
+apiRouter.use('/media', mediaRouter);
+apiRouter.use('/assistant', assistantRouter);
+
+// Mount router on both /api and root
+app.use('/api', apiRouter);
+app.use(apiRouter);
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
