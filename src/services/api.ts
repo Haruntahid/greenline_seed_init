@@ -3,7 +3,24 @@
  * Provides type-safe CRUD operations and JWT auth against the MongoDB backend.
  */
 
-export const API_BASE_URL = import.meta.env.VITE_API_URL || '/api';
+function resolveApiBaseUrl(): string {
+  const envUrl = import.meta.env.VITE_API_URL;
+  if (typeof window !== 'undefined') {
+    const isLocalhost =
+      window.location.hostname === 'localhost' ||
+      window.location.hostname === '127.0.0.1';
+    // When running in production on a remote domain or if envUrl points to localhost,
+    // always use relative '/api' to guarantee same-origin requests (preventing CORS / mixed content).
+    if (!isLocalhost || import.meta.env.PROD) {
+      if (!envUrl || envUrl.includes('localhost') || envUrl.includes('127.0.0.1')) {
+        return '/api';
+      }
+    }
+  }
+  return envUrl || '/api';
+}
+
+export const API_BASE_URL = resolveApiBaseUrl();
 
 let accessToken: string | null = null;
 let unauthorizedHandler: (() => void) | null = null;
