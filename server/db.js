@@ -3,12 +3,10 @@ import { MongoClient, ServerApiVersion } from 'mongodb';
 
 dotenv.config();
 
-const uri = process.env.MONGODB_URI;
+const uri =
+  process.env.MONGODB_URI ||
+  'mongodb+srv://tahidtaha997_db_user:greenline-seed2026@cluster0.fkko2hi.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
 const dbName = process.env.DB_NAME || 'greenline_seed';
-
-if (!uri) {
-  throw new Error('Please define the MONGODB_URI environment variable inside .env');
-}
 
 const client = new MongoClient(uri, {
   serverApi: {
