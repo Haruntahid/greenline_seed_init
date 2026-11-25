@@ -226,8 +226,7 @@ function GalleryContentEditor() {
       <div className="content-editor-group">
         <p>
           Add and manage the images displayed on your public Gallery page.
-          You can upload images or use publicly accessible image links,
-          including Google Drive links.
+          You can upload images or use direct image links.
         </p>
 
         <div className="gallery-admin-list-heading">
@@ -311,8 +310,7 @@ function GalleryContentEditor() {
         )}
 
         <div className="gallery-admin-info">
-          <strong>Google Drive tip:</strong> Set the image sharing permission
-          to Anyone with the link before using its URL here.
+          <strong>Tip:</strong> Ensure external image links are publicly accessible before saving.
         </div>
 
         <div className="content-editor-actions">

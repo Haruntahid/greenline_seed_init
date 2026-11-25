@@ -107,7 +107,7 @@ function MediaLibraryPage() {
           <span className="media-eyebrow">ASSETS & MEDIA</span>
           <h1>Media Library</h1>
           <p>
-            Manage external images and Google Drive links. Storing URLs preserves your MongoDB free storage quota.
+            Manage media assets and hosted image links. Storing URLs preserves your database storage quota.
           </p>
         </div>
       </div>
@@ -118,7 +118,7 @@ function MediaLibraryPage() {
           <div className="media-card-header">
             <Plus size={20} className="media-card-icon" />
             <div>
-              <h2>Add Image Link / Drive URL</h2>
+              <h2>Add Image Link / File</h2>
               <p>Add image reference for use across products and sections</p>
             </div>
           </div>
@@ -161,8 +161,8 @@ function MediaLibraryPage() {
                 label="Image URL or Upload File"
                 value={newUrl}
                 onChange={(url) => setNewUrl(url)}
-                placeholder="https://drive.google.com/file/d/... or upload image"
-                helpText="Direct upload hosts image automatically. Direct links & Google Drive links are also supported."
+                placeholder="Paste image link or upload image"
+                helpText="Direct upload hosts image automatically. Direct links are also supported."
               />
             </div>
 

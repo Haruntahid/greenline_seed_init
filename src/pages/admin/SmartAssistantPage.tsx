@@ -17,6 +17,7 @@ import {
   RotateCcw,
 } from 'lucide-react'
 import { api } from '../../services/api'
+import { toast } from '../../components/ui/Toast'
 import './SmartAssistantPage.css'
 
 interface QuickAction {

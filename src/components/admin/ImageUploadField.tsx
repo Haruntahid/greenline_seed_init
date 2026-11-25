@@ -17,7 +17,7 @@ export const ImageUploadField: React.FC<ImageUploadFieldProps> = ({
   label = 'Image URL or Upload File',
   value,
   onChange,
-  placeholder = 'https://drive.google.com/file/d/... or image URL',
+  placeholder = 'Paste image link or click upload',
   helpText,
   previewHeight = '140px',
 }) => {

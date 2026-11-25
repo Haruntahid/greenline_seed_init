@@ -57,12 +57,12 @@ function LoginPage() {
       <div className="admin-login-card">
         <div className="admin-login-brand">
           <div className="admin-login-brand-icon">
-            M
+            G
           </div>
 
           <div>
-            <h2>MASTER</h2>
-            <span>WEBSITE CONTROL</span>
+            <h2>GREENLINE</h2>
+            <span>SEED MANAGEMENT</span>
           </div>
         </div>
 

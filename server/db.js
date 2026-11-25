@@ -3,29 +3,37 @@ import { MongoClient, ServerApiVersion } from 'mongodb';
 
 dotenv.config();
 
-const uri =
-  process.env.MONGODB_URI ||
-  'mongodb+srv://tahidtaha997_db_user:greenline-seed2026@cluster0.fkko2hi.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
 const dbName = process.env.DB_NAME || 'greenline_seed';
 
-const client = new MongoClient(uri, {
-  serverApi: {
-    version: ServerApiVersion.v1,
-    strict: true,
-    deprecationErrors: true,
-  },
-});
-
+let client = null;
 let isConnected = false;
+
+function getMongoClient() {
+  if (!client) {
+    const uri = process.env.MONGODB_URI;
+    if (!uri) {
+      throw new Error('Please define the MONGODB_URI environment variable');
+    }
+    client = new MongoClient(uri, {
+      serverApi: {
+        version: ServerApiVersion.v1,
+        strict: true,
+        deprecationErrors: true,
+      },
+    });
+  }
+  return client;
+}
 
 export async function connectToMongoDB() {
   try {
+    const currentClient = getMongoClient();
     if (!isConnected) {
-      await client.connect();
+      await currentClient.connect();
       isConnected = true;
       console.log('You successfully connected to MongoDB!');
     }
-    return client;
+    return currentClient;
   } catch (err) {
     console.error('Failed to connect to MongoDB:', err);
     throw err;
@@ -33,18 +41,19 @@ export async function connectToMongoDB() {
 }
 
 export function getDb() {
-  return client.db(dbName);
+  return getMongoClient().db(dbName);
 }
 
 export function getClient() {
-  return client;
+  return getMongoClient();
 }
 
 // Call this only when your application terminates
 export async function disconnectFromMongoDB() {
-  if (isConnected) {
+  if (client && isConnected) {
     await client.close();
     isConnected = false;
+    client = null;
     console.log('MongoDB connection closed.');
   }
 }

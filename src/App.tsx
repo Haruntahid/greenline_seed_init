@@ -10,6 +10,7 @@ import CustomCursor from './components/ui/CustomCursor'
 import ThemeProvider from './components/ui/ThemeProvider'
 import SectionRenderer from './components/sections/SectionRenderer'
 import HashScroll from './components/ui/HashScroll'
+import { ToastContainer } from './components/ui/Toast'
 
 import PublicLayout from './layouts/PublicLayout'
 import AdminLayout from './layouts/AdminLayout'
@@ -166,6 +167,7 @@ function App() {
 
         <ThemeProvider>
           {siteConfig.features.customCursor && <CustomCursor />}
+          <ToastContainer />
 
           <Routes>
             {/* Login */}

@@ -126,7 +126,7 @@ function AboutContentEditor() {
             setSaved(false)
           }}
           placeholder="Upload image or paste image link"
-          helpText="Upload an image from your device or paste an external / Google Drive link. Recommended: landscape."
+          helpText="Upload an image from your device or paste an external image link. Recommended: landscape."
         />
 
         <label>

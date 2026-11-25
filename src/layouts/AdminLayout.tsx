@@ -124,11 +124,11 @@ function AdminLayout({ children }: AdminLayoutProps) {
         className={`admin-sidebar ${isMobileOpen ? 'admin-sidebar-mobile-open' : ''}`}
       >
         <div className="admin-brand">
-          <div className="admin-brand-icon">M</div>
+          <div className="admin-brand-icon">G</div>
 
           <div className="admin-brand-text">
-            <h2>MASTER</h2>
-            <span>WEBSITE CONTROL</span>
+            <h2>GREENLINE</h2>
+            <span>SEED MANAGEMENT</span>
           </div>
 
           <button

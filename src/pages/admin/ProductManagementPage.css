@@ -777,3 +777,80 @@
 .product-image-url-field input::placeholder {
   color: var(--admin-muted);
 }
+
+/* Filter bar and select controls */
+.product-filters-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.product-filter-select {
+  padding: 9px 14px;
+  border: 1px solid var(--admin-border);
+  border-radius: 8px;
+  background: var(--admin-surface);
+  color: var(--admin-text);
+  font: inherit;
+  font-size: 13px;
+  outline: none;
+  cursor: pointer;
+  transition: border-color 0.2s ease;
+}
+
+.product-filter-select:focus {
+  border-color: var(--admin-accent);
+}
+
+/* Admin Pagination */
+.product-admin-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 24px;
+  padding-top: 16px;
+  border-top: 1px solid var(--admin-border);
+}
+
+.product-pagination-info {
+  font-size: 13px;
+  color: var(--admin-muted);
+}
+
+.product-pagination-buttons {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.product-page-btn {
+  padding: 7px 12px;
+  border: 1px solid var(--admin-border);
+  border-radius: 6px;
+  background: var(--admin-surface);
+  color: var(--admin-text);
+  font: inherit;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.product-page-btn:hover:not(:disabled) {
+  background: var(--admin-surface-hover);
+  border-color: var(--admin-accent);
+}
+
+.product-page-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.product-page-btn.active {
+  background: var(--admin-accent);
+  color: #071a13;
+  font-weight: 700;
+  border-color: var(--admin-accent);
+}
